@@ -1,0 +1,102 @@
+{
+  "name": "react-server-side-rendering-on-nashorn-example",
+  "version": "0.1.0",
+  "description": "Example of server-side rendering with React on Nashorn",
+  "main": "bin/index.js",
+  "dist": {
+    "umd": "bundle.js",
+    "min": "bundle.min.js",
+    "map": "bundle.min.js.map"
+  },
+  "build": "./bin",
+  "directories": {
+    "src": "./src",
+    "dist": "./bin"
+  },
+  "extensions": [
+    ".js",
+    ".jsx"
+  ],
+  "entries": [
+    "index.jsx"
+  ],
+  "exports": [
+    "App"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/download/react-server-side-rendering-on-nashorn-example.git"
+  },
+  "author": {
+    "name": "Stijn de Witt",
+    "email": "StijnDeWitt@hotmail.com",
+    "url": "http://StijnDeWitt.com"
+  },
+  "contributors": [],
+  "copyright": "Copyright 2015 by [Stijn de Witt](http://StijnDeWitt.com). Some rights reserved.",
+  "license": "CC-BY-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "scripts": {
+    "build": "gulp"
+  },
+  "browserify": {
+    "basedir": "src",
+    "extensions": [
+      ".jsx"
+    ],
+    "entry": [
+      "src/index.jsx"
+    ],
+    "transform": [
+      "babelify",
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "react": "global:React",
+    "react-dom": {
+      "exports": "global:ReactDOM",
+      "depends": [
+        "react:React"
+      ]
+    },
+    "react-dom/server": {
+      "exports": "global:ReactDOMServer",
+      "depends": [
+        "react:React",
+        "react-dom:ReactDOM"
+      ]
+    },
+    "history": {
+      "exports": "global:History"
+    },
+    "react-router": {
+      "exports": "global:ReactRouter",
+      "depends": [
+        "react:React"
+      ]
+    }
+  },
+  "devDependencies": {
+    "babelify": "^6.4.0",
+    "browserify": "^12.0.1",
+    "browserify-shim": "^3.8.11",
+    "gulp": "^3.9.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "streamify": "^0.2.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.6.0"
+  },
+  "dependencies": {
+    "history": "^1.13.0",
+    "picolog": "^0.7.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.2",
+    "react-mdl": "^1.0.1",
+    "react-router": "^1.0.0"
+  }
+}
